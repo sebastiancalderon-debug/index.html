@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tienda - Productos Destacados</title>
+  <meta name="description" content="Compra los mejores productos. Ofertas, envío rápido y garantía. Suscríbete para recibir descuentos.">
+  <!-- Aquí puedes pegar tu GTM / Pixel -->
+  <!-- Google Tag Manager (opcional) -->
+  <!-- <script> ...gtm code... </script> -->
+
+  <style>
+    :root{
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --accent:#ff4d4d;
+      --muted:#666;
+      --glass: rgba(255,255,255,0.7);
+      --maxw:1200px;
+      --radius:12px;
+      --shadow: 0 6px 22px rgba(0,0,0,0.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    .container{max-width:var(--maxw);margin:0 auto;padding:20px;}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:46px;height:46px;background:linear-gradient(135deg,#ff7b7b,#ff4d4d);border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
+    /* Hero */
+    .hero{
+      background:linear-gradient(180deg, rgba(255,77,77,0.06), transparent);
+      border-radius:16px;
+      padding:36px;
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:24px;
+      align-items:center;
+      box-shadow:var(--shadow);
+      margin-bottom:28px;
+    }
+    .hero h1{font-size:28px;margin:0 0 8px;color:#0b1220}
+    .hero p{margin:0 0 18px;color:var(--muted)}
+    .cta{
+      display:inline-block;
+      background:var(--accent);
+      color:white;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;
+      box-shadow:0 8px 20px rgba(255,77,77,0.18)
+    }
+    .hero .hero-right{background:var(--card);padding:18px;border-radius:12px}
+    .banner-img{width:100%;height:220px;background:#eee;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#999;font-weight:700}
+    /* Products */
+    .section-title{display:flex;align-items:end;justify-content:space-between;margin:18px 0}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+    .thumb{height:170px;background:#fafafa;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#bbb;font-weight:700}
+    .price{font-size:18px;font-weight:800;color:var(--accent)}
+    .buy{display:inline-block;padding:10px 14px;border-radius:10px;background:#0b1220;color:white;text-decoration:none;text-align:center;font-weight:700}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{background:#eef7ff;padding:6px 9px;border-radius:8px;font-weight:700;color:#0366d6}
+    /* Benefits */
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+    .benefit{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow);text-align:center}
+    /* Newsletter */
+    .subscribe{background:linear-gradient(180deg,#fff,#fbfbff);padding:18px;border-radius:12px;display:flex;gap:12px;align-items:center;justify-content:space-between;box-shadow:var(--shadow)}
+    .subscribe input{flex:1;padding:10px 12px;border-radius:8px;border:1px solid #e6e6f0}
+    .subscribe button{padding:10px 16px;border-radius:8px;border:0;background:var(--accent);color:white;font-weight:700}
+    footer{margin-top:34px;padding:18px 0;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+    /* Responsive */
+    @media (max-width:992px){
+      .hero{grid-template-columns:1fr}
+      .products{grid-template-columns:repeat(2,1fr)}
+      .benefits{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      .products{grid-template-columns:1fr}
+      .benefits{grid-template-columns:1fr}
+      .hero{padding:18px}
+      .banner-img{height:160px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">MV</div>
+        <div>
+          <div style="font-weight:800">MiVende</div>
+          <div style="font-size:12px;color:var(--muted)">Tienda online</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#productos">Productos</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#newsletter">Newsletter</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO / BANNER -->
+      <section class="hero" aria-label="Banner principal">
+        <div>
+          <h1>Los productos que necesitas — ofertas por tiempo limitado</h1>
+          <p>Envío rápido, garantía y servicio al cliente 24/7. Explora nuestros productos destacados y lleva tu compra con un solo clic.</p>
+          <div style="display:flex;gap:12px;align-items:center">
+            <a class="cta" href="#productos">Ver productos</a>
+            <a class="cta" style="background:#fff;color:var(--accent);box-shadow:none;border:1px solid #ffecec" href="#newsletter">Suscríbete</a>
+          </div>
+
+          <div style="margin-top:18px" class="badges" aria-hidden="true">
+            <span class="badge">Envío gratis 48h</span>
+            <span class="badge">Garantía 30 días</span>
+            <span class="badge">Pago seguro</span>
+          </div>
+        </div>
+
+        <aside class="hero-right" aria-hidden="true">
+          <div class="banner-img">BANNER / PROMO (imagen aquí)</div>
+          <div style="display:flex;justify-content:space-between;margin-top:12px">
+            <div>
+              <div style="font-size:12px;color:var(--muted)">Oferta del día</div>
+              <div style="font-weight:800">Combo Ahorro 3x2</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-size:12px;color:var(--muted)">Precio desde</div>
+              <div style="font-weight:800;color:var(--accent)">$49.99</div>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- PRODUCTOS -->
+      <section id="productos">
+        <div class="section-title">
+          <h2 style="margin:0">Productos destacados</h2>
+          <div style="color:var(--muted)">Mostrando 3 productos</div>
+        </div>
+
+        <div class="products" role="list">
+          <!-- Producto 1 -->
+          <article class="card" role="listitem">
+            <div class="thumb">Imagen 1</div>
+            <div>
+              <div style="font-weight:800">Producto Premium</div>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">Descripción corta del producto en una línea.</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+              <div class="price">$79.99</div>
+              <a class="buy" href="https://tu-checkout.example.com/producto1" target="_blank" rel="noopener">Comprar</a>
+            </div>
+          </article>
+
+          <!-- Producto 2 -->
+          <article class="card" role="listitem">
+            <div class="thumb">Imagen 2</div>
+            <div>
+              <div style="font-weight:800">Kit Esencial</div>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">Incluye lo necesario para comenzar.</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+              <div class="price">$49.99</div>
+              <a class="buy" href="https://tu-checkout.example.com/producto2" target="_blank" rel="noopener">Comprar</a>
+            </div>
+          </article>
+
+          <!-- Producto 3 -->
+          <article class="card" role="listitem">
+            <div class="thumb">Imagen 3</div>
+            <div>
+              <div style="font-weight:800">Accesorio Top</div>
+              <div style="color:var(--muted);font-size:13px;margin-top:6px">Pequeño, práctico y durable.</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+              <div class="price">$19.99</div>
+              <a class="buy" href="https://tu-checkout.example.com/producto3" target="_blank" rel="noopener">Comprar</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- BENEFICIOS -->
+      <section id="beneficios">
+        <div class="section-title">
+          <h2 style="margin:0">¿Por qué comprar con nosotros?</h2>
+          <div style="color:var(--muted)">Calidad, confianza y soporte</div>
+        </div>
+
+        <div class="benefits">
+          <div class="benefit">
+            <div style="font-size:22px;font-weight:800">Envío rápido</div>
+            <div style="color:var(--muted);margin-top:8px">Recibe tu pedido en 48 horas en la mayoría de ciudades.</div>
+          </div>
+          <div class="benefit">
+            <div style="font-size:22px;font-weight:800">Garantía</div>
+            <div style="color:var(--muted);margin-top:8px">30 días de devolución, sin preguntas.</div>
+          </div>
+          <div class="benefit">
+            <div style="font-size:22px;font-weight:800">Soporte 24/7</div>
+            <div style="color:var(--muted);margin-top:8px">Chat y email para ayudarte en todo momento.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWSLETTER -->
+      <section id="newsletter" style="margin-bottom:6px">
+        <div class="subscribe" role="region" aria-label="Suscríbete a nuestra newsletter">
+          <div>
+            <div style="font-weight:800">Suscríbete y recibe un cupón del 10%</div>
+            <div style="color:var(--muted);font-size:13px;margin-top:6px">Promociones exclusivas y novedades.</div>
+          </div>
+
+          <form id="newsletterForm" style="display:flex;gap:8px;align-items:center" onsubmit="subscribe(event)">
+            <input id="emailInput" type="email" placeholder="tu@correo.com" required aria-label="Correo electrónico">
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        <div>© <span id="year"></span> MiVende • Todos los derechos reservados</div>
+        <div style="color:var(--muted)">Soporte: soporte@tutienda.com</div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simulación newsletter: reemplaza con llamada a API / Mailchimp / servicio real
+    function subscribe(e){
+      e.preventDefault();
+      var email = document.getElementById('emailInput').value.trim();
+      if(!email) return alert('Ingresa un correo válido');
+      // Aquí puedes cambiar a fetch(...) para enviar a tu backend
+      // Ejemplo simple: abrir cliente de correo con mailto (sólo como fallback)
+      var mailto = 'mailto:soporte@tutienda.com?subject=Suscripción%20newsletter&body=Por%20favor%20suscribir%20el%20correo:%20' + encodeURIComponent(email);
+      // Mostrar mensaje al usuario
+      alert('Gracias! Hemos recibido tu correo: ' + email + '\nEn el entorno real se enviaría a tu sistema de suscripción.');
+      // Si quieres habilitar mailto por defecto, descomenta:
+      // window.location.href = mailto;
+      // Limpia el input
+      document.getElementById('emailInput').value = '';
+    }
+
+    // Función helper: reemplazar thumbs por imágenes reales
+    // Ej: document.querySelectorAll('.thumb')[0].style.backgroundImage = "url('ruta/a/imagen.jpg')";
+  </script>
+</body>
+</html>
+
